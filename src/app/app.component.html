@@ -1,0 +1,15 @@
+<mat-toolbar>
+  <mat-toolbar-row> 
+    <span class="menu-spacer"></span>
+    <div>
+      <a mat-button [routerLink]="'/home'"> Home </a>
+      <a mat-button [routerLink]="'/results'"> Results </a>
+      <a mat-button [routerLink]="'/winners'"> Winners </a>
+      <a mat-button [routerLink]="'/contactInfo'"> Contact Info </a>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<div class = "row"> 
+  <router-outlet></router-outlet> 
+</div>

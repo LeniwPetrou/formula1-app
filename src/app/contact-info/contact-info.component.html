@@ -1,0 +1,30 @@
+<mat-card style="text-align: center;">
+  <mat-card-title style="margin: 30px;">Contact</mat-card-title>
+  <mat-card-content style="margin: 30px;">
+    <form [formGroup]="contactForm">
+      <p>
+        <mat-form-field >
+          <input type="text" matInput placeholder="Subject" formControlName="subject">
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field>
+          <input type="text" matInput placeholder="Message" formControlName="message">
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field>
+          <mat-select formControlName="driverId" placeholder="Driver">
+            <mat-option (onSelectionChange)="changeDriver($event)" *ngFor="let driver of driversList" [value] = "driver.driverId">
+              {{ driver.givenName }} {{ driver.familyName }} 
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </p>
+      <div class="button">
+        <button mat-raised-button color="primary" (click)="submit()" style="margin:10px;" [disabled]="!contactForm.valid">Submit</button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>
+  

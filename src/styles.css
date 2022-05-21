@@ -1,0 +1,82 @@
+html, body {  
+    height: 100%; 
+    width: 100%;
+    height: 100%; 
+    margin: 0;
+    background: url('https://wallpapercave.com/wp/wp4800159.jpg') repeat center; 
+    background-size: cover;
+    background-attachment: fixed, scroll;
+    background-repeat: repeat-y; 
+ } 
+
+ .table-header {
+    font-size: 20px;
+    background-color: whitesmoke;
+    padding: 20px 24px 0;
+    margin-left: 10%;
+    margin-right: 10%;
+    height: 70px;
+    text-align: center;
+    color: darkslategray;
+  }
+  
+  table {
+    width: 80%;
+  }
+  
+  mat-paginator {
+    width: 80%;
+  }
+  
+  .center {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  tr.mat-header-row {
+    color: black;
+  }
+  
+  .tableHeaderCellDiv { 
+    resize: horizontal;  
+    overflow:hidden;
+  }
+  
+  td.mat-column-star {
+    width: 20px;
+    padding-right: 8px;
+  }
+    
+  th.mat-column-position, td.mat-column-position {
+    padding-left: 8px;
+  }
+  
+  .mat-table-sticky-border-elem-right {
+    border-left: 1px solid #e0e0e0;
+  }
+  
+  .mat-table-sticky-border-elem-left {
+    border-right: 1px solid #e0e0e0;
+  }
+  
+  .material-icons.md-18 { font-size: 18px; }
+  
+  .margin-10 {margin: 10px;}
+  
+  .mat-header-cell {
+    background: white;
+    font-size: 15px;
+    font-weight: 550;
+  }
+
+  .mat-card-filter{
+    margin-top: 2%;
+    margin-left: 10%;
+    margin-right: 10%;
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 69%);
+    font-weight: 400 !important;
+    letter-spacing: 1px;
+    padding: 0px !important;
+  }
+
+
