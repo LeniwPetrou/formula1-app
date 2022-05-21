@@ -9,7 +9,7 @@ This project was generated with:
 - Clone repository
 - Run npm install
 - Run ng serve for a dev server
-- Navigate to http://localhost:4200/home. The app redirects to that url if you gonna navigate to an iNvalid path.
+- Navigate to http://localhost:4200/home. The app redirects to this url if user gonna navigate to an invalid path.
 
 ## Description
 
