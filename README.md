@@ -32,6 +32,6 @@ This project is a frontend application related to a given Formula 1 api. More sp
 ![](contactInfo.gif)    
 
 ### MatSnackBar
-- The application provides related messages if a call to the api is not successful. In order to show these messages to the user MatSnackBar was used.\
+- The application provides related messages if a call to the api is not successful. In order to show these messages to the user MatSnackBar was used.
 ![](matSnackBar.gif) 
 
