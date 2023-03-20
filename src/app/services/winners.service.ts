@@ -8,11 +8,13 @@ import { environment } from 'src/environments/environment';
 export class WinnersService {
 
   baseUrl: string = `${environment.apiBaseUrl}`;
+
+  public items: any;
   constructor(
     private http: HttpClient
   ) { }
 
-  getDriverStandings(season){
-    return this.http.get<any>(`${this.baseUrl}/${season}/driverStandings.json?limit=400&offset=0`, {responseType: 'json'})
+  getDriverStandings(pageSize: number, pageIndex: number, season){
+    return this.http.get<any>(`${this.baseUrl}/${season}/driverStandings.json?limit=${pageSize}&offset=${pageIndex * 10}`, {responseType: 'json'})
   }
 }

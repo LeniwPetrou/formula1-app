@@ -36,6 +36,6 @@
     </ng-container>
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row  *matRowDef="let row; columns: displayedColumns;"></tr>
-  </table> 
-  <mat-paginator class = "center" [pageSizeOptions]="[10, 15, 20]" showFirstLastButtons></mat-paginator>
+  </table>
+  <mat-paginator [length] = "length" class = "center" [pageSize]="pageSize"  [pageSizeOptions]="[10, 15, 20]" [showFirstLastButtons]="true" (page)="onChangePage($event)"></mat-paginator>
 </div> 
