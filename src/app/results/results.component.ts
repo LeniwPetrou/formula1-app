@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatPaginator } from '@angular/material/paginator';
+import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatSort, Sort } from '@angular/material/sort';
 import { ResultsService } from '../services/results.service';
 import { MatTableDataSource } from '@angular/material/table';
@@ -27,6 +27,11 @@ export class ResultsComponent implements OnInit {
   resultsList: any[] =[];
   displayedColumns: string[] = ['position','points', 'driverFirstName', 'driverLastName',  'constructorName'];
   dataSource = new MatTableDataSource<any[]>(this.resultsList);
+  public page : number;
+
+  public pageSize = [10, 15, 20];
+  public pageIndex = 0;
+  public length = 0;
   
   constructor(
     private resultsService: ResultsService,
@@ -81,17 +86,23 @@ export class ResultsComponent implements OnInit {
     }
   }
 
-  submit(){
+  onChangePage(pe:PageEvent) {
+    this.getResults(pe.pageSize, pe.pageIndex)
+  } 
+
+  getResults(pageSize, pageIndex){
     this.clicked = true;
-    this.resultsService.getResults(this.season,this.race).subscribe(
+    console.log('pageSize: ',pageSize);
+    this.resultsService.getResults(this.season,this.race, pageSize, pageIndex).subscribe(
       {
         next: data => {
-          this.resultsList = data.MRData.RaceTable.Races[0].Results;
-          this.circuitName = data.MRData.RaceTable.Races[0].Circuit.circuitName;
-          this.dateRound = data.MRData.RaceTable.Races[0].date;
+          var MRData = data.MRData;
+          this.resultsList = MRData.RaceTable.Races[0].Results;
+          this.circuitName = MRData.RaceTable.Races[0].Circuit.circuitName;
+          this.dateRound = MRData.RaceTable.Races[0].date;
           this.dataSource = new MatTableDataSource<any[]>(this.resultsList);
-          this.dataSource.sort = this.sort;
-          this.dataSource.paginator = this.paginator; 
+          this.paginator.pageIndex = pageIndex;
+          this.length = Number(MRData.total);
         },
         error: error => {
           this.snackBar.open('There was an error getting results.' , 'Close',{

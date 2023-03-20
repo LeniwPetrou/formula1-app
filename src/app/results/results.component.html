@@ -15,7 +15,7 @@
                     </mat-option>
                 </mat-select>
             </mat-form-field>     
-            <button mat-raised-button color="primary" (click)="submit()" style="margin:10px;" [disabled]="!filterForm.valid">Submit</button>
+            <button mat-raised-button color="primary" (click)="getResults(pageSize, pageIndex)" style="margin:10px;" [disabled]="!filterForm.valid">Submit</button>
         </form>
     </mat-card-content>
 </mat-card>
@@ -51,5 +51,5 @@
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row  *matRowDef="let row; columns: displayedColumns;"></tr>
     </table> 
-    <mat-paginator class = "center" [pageSizeOptions]="[10, 15, 20]" showFirstLastButtons></mat-paginator>
+    <mat-paginator [length] = "length" class = "center" [pageSize]="pageSize"  [pageSizeOptions]="pageSize" [showFirstLastButtons]="true" (page)="onChangePage($event)"></mat-paginator>
 </div> 

@@ -31,7 +31,7 @@ export class ResultsService {
     return this.http.get<any>(`${this.baseUrl}/${season}.json`, {responseType: 'json'})
   }
 
-  getResults(season, race){
-    return this.http.get<any>(`${this.baseUrl}/${season}/${race}/results.json?limit=400&offset=0`, {responseType: 'json'})
+  getResults(season, race, pageSize: number, pageIndex: number){
+    return this.http.get<any>(`${this.baseUrl}/${season}/${race}/results.json?limit=${pageSize}&offset=${pageIndex * pageSize}`, {responseType: 'json'})
   }
 }

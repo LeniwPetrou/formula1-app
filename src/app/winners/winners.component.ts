@@ -16,7 +16,7 @@ export class WinnersComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   displayedColumns: string[] = ['position','points', 'driverFirstName', 'driverLastName',  'constructorName'];
-  public pageSize = 10;
+  public pageSize = [10, 15, 20];
   public pageIndex = 0;
   public length = 0;
   public array: any;
